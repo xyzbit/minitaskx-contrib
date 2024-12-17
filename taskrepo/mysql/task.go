@@ -123,18 +123,18 @@ func (t *taskRepoImpl) ListTaskRuns(ctx context.Context) ([]*model.TaskRun, erro
 	}), nil
 }
 
-func (t *taskRepoImpl) FinishTaskTX(ctx context.Context, taskKey string, status model.TaskStatus, result string) error {
+func (t *taskRepoImpl) FinishTaskTX(ctx context.Context, task *model.Task) error {
 	return t.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
 		if err := tx.Model(&Task{}).
-			Where("task_key = ?", taskKey).
+			Where("task_key = ?", task.TaskKey).
 			Updates(map[string]interface{}{
-				"status": status.String(),
-				"result": result,
+				"status": task.Status.String(),
+				"msg":    task.Msg,
 			}).Error; err != nil {
 			return err
 		}
 		return tx.Model(&TaskRun{}).
-			Where("task_key = ?", taskKey).
+			Where("task_key = ?", task.TaskKey).
 			Delete(&TaskRun{}).Error
 	})
 }
@@ -156,6 +156,13 @@ func (t *taskRepoImpl) ListRunnableTasks(ctx context.Context, workerID string) (
 		Find(&tasks).Error
 	if err != nil {
 		return nil, err
+	}
+
+	for _, task := range tasks {
+		taskRun, exist := lo.Find(taskRuns, func(t *TaskRun) bool { return task.TaskKey == t.TaskKey })
+		if exist {
+			task.Status = taskRun.WantRunStatus
+		}
 	}
 
 	return lo.Map(tasks, func(item *Task, index int) *model.Task {

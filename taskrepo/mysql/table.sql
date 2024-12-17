@@ -25,6 +25,7 @@ CREATE TABLE `task` (
   `staints` json DEFAULT NULL COMMENT '任务污点',
   `extra` text,
   `status` varchar(255)  NOT NULL COMMENT 'pending scheduled running|puase success failed',
+  `msg` text COMMENT '执行信息',
   `result` json DEFAULT NULL COMMENT '执行结果',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
