@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	github.com/nacos-group/nacos-sdk-go v1.1.5
 	github.com/samber/lo v1.47.0
-	github.com/xyzbit/minitaskx v0.0.0-20241217084345-81be79e8f1e3
+	github.com/xyzbit/minitaskx v0.0.0-20241229070821-c433f3f5026e
 	gorm.io/gorm v1.25.12
 )
 

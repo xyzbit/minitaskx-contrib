@@ -15,7 +15,7 @@ type Task struct {
 	Type      string    `gorm:"column:type;not null;comment:任务类型"`
 	Payload   string    `gorm:"column:payload;not null;comment:任务内容"`
 	Labels    *string   `gorm:"column:labels;type:json;comment:任务标签"`
-	Staints   *string   `gorm:"column:staints;type:json;comment:任务污点"`
+	Stains    *string   `gorm:"column:staints;type:json;comment:任务污点"`
 	Extra     *string   `gorm:"column:extra"`
 	Status    string    `gorm:"column:status;not null;comment:pending scheduled running|puase success failed"`
 	Msg       string    `gorm:"column:msg"`
@@ -33,7 +33,7 @@ type TaskRun struct {
 	TaskKey       string     `gorm:"column:task_key;not null;comment:任务唯一标识"`
 	WorkerID      string     `gorm:"column:worker_id;not null;comment:工作者id"`
 	NextRunAt     *time.Time `gorm:"column:next_run_at;comment:下一次执行时间"`
-	WantRunStatus string     `gorm:"column:want_run_status;not null;comment:期望的运行状态: running puased success failed"`
+	WantRunStatus string     `gorm:"column:want_run_status;not null;comment:期望的运行状态: running paused success failed"`
 	CreatedAt     time.Time  `gorm:"column:created_at;autoCreateTime"`
 	UpdatedAt     time.Time  `gorm:"column:updated_at;autoUpdateTime"`
 }
@@ -64,10 +64,10 @@ func FromTaskModel(t *model.Task) *Task {
 		labelsStr := string(labels)
 		task.Labels = &labelsStr
 	}
-	if t.Staints != nil {
-		staints, _ := json.Marshal(t.Staints)
-		staintsStr := string(staints)
-		task.Staints = &staintsStr
+	if t.Stains != nil {
+		stains, _ := json.Marshal(t.Stains)
+		stainsStr := string(stains)
+		task.Stains = &stainsStr
 	}
 	if t.Extra != nil {
 		extra, _ := json.Marshal(t.Extra)
@@ -101,10 +101,10 @@ func ToTaskModel(t *Task) *model.Task {
 		_ = json.Unmarshal([]byte(*t.Labels), &labels)
 		task.Labels = labels
 	}
-	if t.Staints != nil && *t.Labels != "" {
-		var staints map[string]string
-		_ = json.Unmarshal([]byte(*t.Staints), &staints)
-		task.Staints = staints
+	if t.Stains != nil && *t.Labels != "" {
+		var stains map[string]string
+		_ = json.Unmarshal([]byte(*t.Stains), &stains)
+		task.Stains = stains
 	}
 	if t.Extra != nil && *t.Extra != "" {
 		var extra map[string]string
