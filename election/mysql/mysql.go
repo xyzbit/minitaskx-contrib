@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/xyzbit/minitaskx/core/components/election"
-	"github.com/xyzbit/minitaskx/util"
+	"github.com/xyzbit/minitaskx/pkg/util"
 
 	"gorm.io/gorm"
 )
