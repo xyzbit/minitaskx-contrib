@@ -80,8 +80,8 @@ github.com/tklauser/go-sysconf v0.3.12 h1:0QaGUFOdQaIVdPgfITYzaTegZvdCjmYO52cSFA
 github.com/tklauser/go-sysconf v0.3.12/go.mod h1:Ho14jnntGE1fpdOqQEEaiKRpvIavV0hSfmBq8nJbHYI=
 github.com/tklauser/numcpus v0.6.1 h1:ng9scYS7az0Bk4OZLvrNXNSAO2Pxr1XXRAPyjhIx+Fk=
 github.com/tklauser/numcpus v0.6.1/go.mod h1:1XfjsgE2zo8GVw7POkMbHENHzVg3GzmoZ9fESEdAacY=
-github.com/xyzbit/minitaskx v0.0.0-20241217084345-81be79e8f1e3 h1:ixH4NZklnSD//PpZjS8p7FmUbMlUjkh6SsfeHON78oU=
-github.com/xyzbit/minitaskx v0.0.0-20241217084345-81be79e8f1e3/go.mod h1:Yb+SKjCbaHRxenX0buEeumS04xVZ1FoGDR2FhodxEHU=
+github.com/xyzbit/minitaskx v0.0.0-20241224113558-c2ab34204dbd h1:i2F5fhQ2kFPQcjNBOEQRrLpARDNZ3TerY4qVL2XfNQ4=
+github.com/xyzbit/minitaskx v0.0.0-20241224113558-c2ab34204dbd/go.mod h1:Yb+SKjCbaHRxenX0buEeumS04xVZ1FoGDR2FhodxEHU=
 github.com/yuin/goldmark v1.3.5/go.mod h1:mwnBkeHKe2W/ZEtQ+71ViKU8L12m81fl3OWwC1Zlc8k=
 github.com/yusufpapurcu/wmi v1.2.4 h1:zFUKzehAFReQwLys1b/iSMl+JQGSCSjtVqQn9bBrPo0=
 github.com/yusufpapurcu/wmi v1.2.4/go.mod h1:SBZ9tNy3G9/m5Oi98Zks0QjeHVDvuK0qfxQmPyzfmi0=
