@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	github.com/nacos-group/nacos-sdk-go v1.1.5
 	github.com/samber/lo v1.47.0
-	github.com/xyzbit/minitaskx v0.0.0-20241224113558-c2ab34204dbd
+	github.com/xyzbit/minitaskx v1.0.1-0.20250124101012-95fc1cc8ecce
 	gorm.io/gorm v1.25.12
 )
 
@@ -31,9 +31,9 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.21.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.20.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
+	golang.org/x/sys v0.29.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 	gopkg.in/ini.v1 v1.66.2 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 )
